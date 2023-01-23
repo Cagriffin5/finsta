@@ -1,0 +1,270 @@
+/**
+ * Finsta Main Stylesheet
+ * 
+ * This style has been designed by Melissa Cabral 
+ * for the WIP400 Intro to Programming Course. 
+ * 
+ * @uses 			Picnic CSS by Francisco Presencia [https://picnicss.com/]
+ * @version   2.0.0
+ * @author    Melissa Cabral
+ * @copyright 2023 
+ * @license   GPL v3
+ *
+ * -----------------
+ * Table of Contents
+ * -----------------
+== Variables
+== Page Container
+== Page Grid (one column, sticky footer)
+== Forms
+== form feedback system 
+== content components
+== Icons
+== debug button
+ * ----------------
+ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+
+/*
+== Variables
+ */
+:root{
+	--body-font: Poppins, Calibri, sans-serif;
+	--max-content-width: 1024px;
+	--color-background: white;
+	--color-text: #222;
+	--color-background-contrast: #eee;
+	--color-feedback: khaki;
+	--color-error: pink;
+	--color-success: lightgreen;
+}
+
+/*
+== Page Container
+ */
+body {
+  font-family: var(--body-font) ;
+  padding-top: 80px;
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+/*
+== Page Grid (one column, sticky footer)
+ */
+.site {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.content {
+  width: 100%;
+  max-width: var(--max-content-width);
+  padding: 0 1em;
+  margin: 0 auto;
+}
+
+.footer {
+  background-color: var(--color-text);
+  color: var(--color-background);
+  padding: 1em;
+}
+
+.sidebar {
+  margin-top: 2em;
+  background-color: var(--color-background-contrast);
+  padding: 1em;
+  color: var(--color-text);
+}
+/*
+== Forms
+ */
+form{
+  max-width: 600px;
+  margin: 1em 0;
+}
+.important-form{
+  max-width: 600px;
+  margin: 0 auto;
+}
+label{
+  display: block;
+  margin: .7em 0 .2em;
+}
+.searchform {
+  display: inline-block;
+  margin-left: 1em !important;
+}
+.searchform input {
+  margin: 0;
+  width: auto;
+}
+.searchform input[type=submit] {
+  position: relative;
+  top: -1px;
+}
+/*
+== form feedback system 
+*/
+.feedback{
+  background-color: var(--color-feedback);
+  padding:1em;
+  margin:1em 0;
+ 
+}
+.error{
+  background-color: var(--color-error);
+}
+.success{
+  background-color: var(--color-success);
+}
+/*
+== content components
+ */
+.sidebar section{
+  padding: 1em;
+}
+.sidebar h2 {
+  font-size: 110%;
+ 
+  padding-top: 0;
+  color: #888888;
+}
+.sidebar .button{
+  background-color: #FAFAFA;
+}
+
+.profile-pic {
+  border-radius: 100%;
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.post-image-header{
+	position: relative;
+	padding: 0;
+	font-size: 0;
+}
+.post-image-header img, .post-image-header a {
+	font-size: 0;
+	line-height: 0;
+}
+.post-image-header .edit-post-button{
+	font-size: 1rem;
+	line-height: 1.4;
+	position: absolute;
+	top: .5em;
+	right: .5em;
+}
+.clamp{
+   display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  padding: 0;
+}
+.post-info{
+  margin-top: 1em;
+  color: #999;
+}
+.draft .card{
+  background-color: #979797;
+  opacity: .7;
+}
+
+.author-profile{
+	text-align: center;
+}
+
+/*
+== Icons
+ */
+.category,
+.date,
+.comment-count,
+.ago {
+  display: block;
+  font-size: 0.8em;
+  color: var(--base-color);
+  position: relative;
+}
+
+/*category icon*/
+.category:before {
+  content: "";
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDQ4IDQ4IiBoZWlnaHQ9IjQ4cHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA0OCA0OCIgd2lkdGg9IjQ4cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0xOC43MjQsMEgwdjE4LjI1NmwtMC4xODQsMC40bDI5LjA5OSwyOC45OTFsMTkuMTQ2LTE5LjA5MkwxOS4wOTctMC40MThMMTguNzI0LDB6IE0xMC4yODUsOS44MTcgIGMtMC45NzcsMC45NzctMi41NTksMC45NzctMy41MzYsMGMtMC45NzctMC45NzctMC45NzctMi41NiwwLTMuNTM2YzAuOTc3LTAuOTc2LDIuNTU5LTAuOTc2LDMuNTM2LDAgIEMxMS4yNjEsNy4yNTgsMTEuMjYxLDguODQxLDEwLjI4NSw5LjgxN3oiIGZpbGw9IiMyMjFGMUYiLz48L3N2Zz4=);
+  width: 1em;
+  height: 1em;
+  margin: 0 0.5em 0 0;
+  background-size: contain;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  opacity: 0.4;
+}
+
+/*comment icon*/
+.comment-count:before {
+  content: "";
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDI0IDI0IiBoZWlnaHQ9IjI0cHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0cHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTEwLjcxOCwxOC41NjFsNi43OCw1LjMxMUMxNy42MDksMjMuOTU3LDE3LjY3NywyNCwxNy43NDMsMjQgIGMwLjE4OCwwLDAuMjQ0LTAuMTI3LDAuMjQ0LTAuMzM4di01LjAyM2MwLTAuMzU1LDAuMjMzLTAuNjM3LDAuNTQ4LTAuNjM3TDIxLDE4YzIuMjE5LDAsMy0xLjA5NCwzLTJzMC0xMywwLTE0cy0wLjc0OC0yLTMuMDE0LTIgIEgyLjk4OUMwLjgwMiwwLDAsMC45NjksMCwyczAsMTMuMDMxLDAsMTRzMC44MjgsMiwzLDJoNkM5LDE4LDEwLjI1NSwxOC4wMzUsMTAuNzE4LDE4LjU2MXoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==);
+  width: 1em;
+  height: 1em;
+  margin: 0 0.5em 0 0;
+  background-size: contain;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  opacity: 0.4;
+}
+
+/*calendar icon*/
+.date:before {
+  content: "";
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIyMHB4IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxOCAyMCIgd2lkdGg9IjE4cHgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48dGl0bGUvPjxkZXNjLz48ZGVmcy8+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSI+PGcgZmlsbD0iIzAwMDAwMCIgaWQ9IkNvcmUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zMzkuMDAwMDAwLCAtNDY0LjAwMDAwMCkiPjxnIGlkPSJ0b2RheSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzM5LjAwMDAwMCwgNDY0LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNiwyIEwxNSwyIEwxNSwwIEwxMywwIEwxMywyIEw1LDIgTDUsMCBMMywwIEwzLDIgTDIsMiBDMC45LDIgMCwyLjkgMCw0IEwwLDE4IEMwLDE5LjEgMC45LDIwIDIsMjAgTDE2LDIwIEMxNy4xLDIwIDE4LDE5LjEgMTgsMTggTDE4LDQgQzE4LDIuOSAxNy4xLDIgMTYsMiBMMTYsMiBaIE0xNiwxOCBMMiwxOCBMMiw3IEwxNiw3IEwxNiwxOCBMMTYsMTggWiIgaWQ9IlNoYXBlIi8+PHJlY3QgaGVpZ2h0PSI1IiBpZD0iUmVjdGFuZ2xlLXBhdGgiIHdpZHRoPSI1IiB4PSI0IiB5PSI5Ii8+PC9nPjwvZz48L2c+PC9zdmc+);
+  width: 1em;
+  height: 1em;
+  margin: 0 0.5em 0 0;
+  background-size: contain;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.4;
+}
+/*
+== debug button
+*/
+.modal{
+   width: 80%;
+  max-width: 1024px;
+}
+.modal .debug-array{
+ 
+  font-family: monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+.debug-array b{
+  color: #0C569F;
+  font-size: 120%;
+}
+#debug-button { 
+-webkit-touch-callout: none; 
+-webkit-user-select: none; 
+-khtml-user-select: none; 
+-moz-user-select: none; 
+-ms-user-select: none; 
+user-select: none; 
+right: 0px; 
+bottom: 10vh;
+padding: 1em 1.5em;
+display: block; 
+position: fixed; 
+background: tomato; 
+color: white;
+z-index: 1; 
+text-align: center;
+} 
