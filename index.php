@@ -25,7 +25,7 @@ require('includes/header.php');?>
 				<article class="post">
 					<div class="card">
 						<div class="post-image-header">
-							<a href="#">
+							<a href="single.php?post_id=<?php echo $post['post_id'];?>">
 								<img src="<?php echo $post ['image']; ?>" alt='<?php echo $post ['title']; ?>' class='post-image'>
 							</a>
 						</div>

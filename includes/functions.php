@@ -67,3 +67,51 @@ function time_ago($datetime, $full = false) {
     if (!$full) $string = array_slice($string, 0, 1);
     return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
+
+/**
+ * Sanitize any string user input. Strips HTML and converts special characters
+ * @param  string $dirty the untrusted string data
+ * @return string        the sanitized data
+ */
+function clean_string( $dirty ){
+    $clean = htmlspecialchars( trim( strip_tags( $dirty ) ), ENT_QUOTES );
+    return $clean;
+}
+
+/**
+ * Display the HTML feedback element for basic forms
+ * @param  string $heading the H2 content
+ * @param  array  $list    the list of issues to fix
+ * @param  string $class   either "success" or "error"
+ * @return mixed          HTML element
+ */
+function show_feedback( $heading, $list = array(), $class = 'error' ){
+    if( isset( $heading ) AND $heading != '' ){
+        echo "<div class='feedback $class'>";
+        echo "<h2>$heading</h2>";
+        //if the list is not empty, show it is a <ul>
+        if( ! empty( $list ) ){
+            echo '<ul>';
+            foreach( $list as $item ){
+                echo "<li>$item</li>";
+            }
+            echo '</ul>';
+        }
+        echo '</div>';
+    }
+}
+
+/**
+* displays sql query information including the computed parameters.
+* Silent unless DEBUG MODE is set to 1 in CONFIG.php
+* @param [statement handler] $sth -  any PDO statement handler that needs troubleshooting
+*/
+function debug_statement($sth){
+    if( DEBUG_MODE ){
+        echo '<pre>';
+        $info = debug_backtrace();
+        echo '<b>Debugger ran from ' . $info[0]['file'] . ' on line ' . $info[0]['line'] . '</b><br><br>';
+        $sth->debugDumpParams();
+        echo '</pre>';
+    }
+}
