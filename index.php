@@ -12,7 +12,7 @@ require('includes/header.php');?>
 										AND posts.user_id = users.user_id
 										AND posts.category_id = categories.category_id
 										ORDER BY posts.date DESC
-										LIMIT 20'); 
+										LIMIT 21'); 
 				//run it 
 				$result->execute();
 				//check it 

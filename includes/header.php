@@ -15,6 +15,18 @@
 				<a href="index.php" class="brand">
 					<img class="logo" src="images/logo-color.png" />
 					<span>Finsta</span>
-				</a>				
+				</a>
+				<!-- responsive-->
+				<input id="menu-button" type="checkbox" class="show">
+				<label for="menu-button" class="burger pseudo button">&#9776;</label>
+
+				<div class="menu">
+					
+					<form action="search.php" method="get" class="searchform">
+						<input type="search" name="phrase" placeholder="Search">
+						<input type="submit" value="search">
+					</form>
+
+</div>				
 			</nav>
 		</header>
