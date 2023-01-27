@@ -1,6 +1,6 @@
 TODO
 ====
-* make the register form 
+* Write TOS/Privacy Policy 
 * make custom 404
 
 
@@ -13,3 +13,4 @@ DONE
 * Make and parse the comment form.
 * Add a search form 
 * make the search.php results template
+* make the register form 

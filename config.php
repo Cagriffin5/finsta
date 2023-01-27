@@ -5,10 +5,13 @@
  * * configure error display (production vs development)
  */
 
-/* ------------------configure these variables----------------- */
+/* ------------------configure these values----------------- */
 
 
 define('DEBUG_MODE', true);
+define( 'USERNAME_MIN', 5 );
+define( 'USERNAME_MAX', 30 );
+define( 'PASSWORD_MIN', 8 );
 
 
 $host = 'localhost';
