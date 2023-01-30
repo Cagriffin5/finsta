@@ -26,7 +26,7 @@ if ( isset($_POST['did_comment'])){
         $result->execute( array( 
                 'body' => $body,
                 'post_id' => $post_id,
-                'user_id' => 1, 
+                'user_id' => $logged_in_user['user_id'] 
         ) );
 
 //debug_statement($result);

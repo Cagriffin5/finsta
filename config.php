@@ -21,7 +21,7 @@ $dbname = 'cameron_griffin';
 
 
 /* -------------------------stop editing------------------------ */
-
+session_start();
 
 /* DISPLAY ERRORS
 On a development server

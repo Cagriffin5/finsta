@@ -9,8 +9,9 @@ $post_id = filter_var ($_GET['post_id'], FILTER_SANITIZE_NUMBER_INT );
 if( $post_id < 0 ){
     $post_id = 0;
 }
-require('includes/parse-comment.php');
-require('includes/header.php');?>
+
+require('includes/header.php');
+require('includes/parse-comment.php');?>
 <main class="content">
     <?php 
     //get the one post we are viewing
@@ -59,8 +60,8 @@ require('includes/header.php');?>
     </article> <!-- .post -->
     <?php 
         include('includes/comments.php');
-        //comment form IF this post allows comments. 
-        if( $allow_comments ){
+        //comment form IF this post allows comments and the user is logged in  
+        if( $allow_comments AND $logged_in_user ){
             include('includes/comment_form.php');
         }
             }//end while
