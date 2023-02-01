@@ -35,7 +35,7 @@ require('includes/parse-comment.php');?>
     <article class="post">
         <div class="card flex one two-700">
             <div class="post-image-header two-third-700">
-                <img src="<?php echo $image; ?>">
+                <?php show_post_image( $image, 'large', $title ); ?>
             </div>
 
             <footer class="third-700">

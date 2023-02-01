@@ -1,0 +1,18 @@
+<?php 
+require_once('config.php');
+require_once('includes/functions.php');
+if( ! check_login() ){
+    header('Location:404.php');
+}
+
+require('includes/header.php');
+require('includes/parse-upload.php');?>
+		<main class="content">
+           
+			
+		</main>
+
+      
+		<?php 
+		include('includes/sidebar.php');
+		include('includes/footer.php');

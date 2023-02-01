@@ -260,3 +260,25 @@ function get_RGB($iH, $iS, $iV) {
         return false;
     }
 }
+
+function category_dropdown(){
+    global $DB; 
+    //grt all of the category names in alpha order. 
+    $result = $DB->prepare('SELECT * FROM categories ORDER BY name ASC');
+    $result->execute();
+    if( $result->rowCount() ){
+        echo '<select name="category_id">';
+        while( $row = $result->fetch()  ){
+            extract($row);
+            echo "<option value='$category_id'>$name</option>";
+        }
+        echo '<select>';
+    }
+}
+function show_post_image( $unique, $size = 'medium', $alt = 'post image' ){
+    $url = $unique;
+    if( ! strpos( $unique, 'http' ) ){
+    $url = "uploads/$unique" . '_' .  "$size.jpg";
+    }
+    echo "<img src='$url' alt'$alt' class='post-image is-$size' >";
+}
