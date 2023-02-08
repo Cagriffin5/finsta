@@ -28,34 +28,35 @@
 /*
 == Variables
  */
-:root{
-	--body-font: Poppins, Calibri, sans-serif;
-	--max-content-width: 1024px;
-	--color-background: white;
-	--color-text: #222;
-	--color-background-contrast: #eee;
-	--color-feedback: khaki;
-	--color-error: pink;
-	--color-success: lightgreen;
+:root {
+  --body-font: Poppins, Calibri, sans-serif;
+  --max-content-width: 1024px;
+  --color-background: white;
+  --color-text: #222;
+  --color-background-contrast: #eee;
+  --color-feedback: khaki;
+  --color-error: pink;
+  --color-success: lightgreen;
 }
 
 /*
 == Page Container
  */
 body {
-  font-family: var(--body-font) ;
+  font-family: var(--body-font);
   padding-top: 80px;
   margin: 0;
   background-color: var(--color-background);
   color: var(--color-text);
 }
+
 /*
 == Page Grid (one column, sticky footer)
  */
 .site {
-    min-height: 100%;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 .content {
@@ -77,107 +78,126 @@ body {
   padding: 1em;
   color: var(--color-text);
 }
+
 /*
 == Forms
  */
-form{
+form {
   max-width: 600px;
   margin: 1em 0;
 }
-.important-form{
+
+.important-form {
   max-width: 600px;
   margin: 0 auto;
 }
-label{
+
+label {
   display: block;
   margin: .7em 0 .2em;
 }
+
 .searchform {
   display: inline-block;
   margin-left: 1em !important;
 }
+
 .searchform input {
   margin: 0;
   width: auto;
 }
+
 .searchform input[type=submit] {
   position: relative;
   top: -1px;
 }
+
 /*
 == form feedback system 
 */
-.feedback{
+.feedback {
   background-color: var(--color-feedback);
-  padding:1em;
-  margin:1em 0;
- 
+  padding: 1em;
+  margin: 1em 0;
+
 }
-.error{
+
+.error {
   background-color: var(--color-error);
 }
-.success{
+
+.success {
   background-color: var(--color-success);
 }
+
 /*
 == content components
  */
-.sidebar section{
+.sidebar section {
   padding: 1em;
 }
+
 .sidebar h2 {
   font-size: 110%;
- 
+
   padding-top: 0;
   color: #888888;
 }
-.sidebar .button{
+
+.sidebar .button {
   background-color: #FAFAFA;
 }
 
 .profile-pic {
   border-radius: 100%;
-  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
 }
+
 img {
   max-width: 100%;
   height: auto;
 }
 
-.post-image-header{
-	position: relative;
-	padding: 0;
-	font-size: 0;
+.post-image-header {
+  position: relative;
+  padding: 0;
+  font-size: 0;
 }
-.post-image-header img, .post-image-header a {
-	font-size: 0;
-	line-height: 0;
+
+.post-image-header img,
+.post-image-header a {
+  font-size: 0;
+  line-height: 0;
 }
-.post-image-header .edit-post-button{
-	font-size: 1rem;
-	line-height: 1.4;
-	position: absolute;
-	top: .5em;
-	right: .5em;
+
+.post-image-header .edit-post-button {
+  font-size: 1rem;
+  line-height: 1.4;
+  position: absolute;
+  top: .5em;
+  right: .5em;
 }
-.clamp{
-   display: -webkit-box;
+
+.clamp {
+  display: -webkit-box;
   -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;  
+  -webkit-box-orient: vertical;
   overflow: hidden;
   padding: 0;
 }
-.post-info{
+
+.post-info {
   margin-top: 1em;
   color: #999;
 }
-.draft .card{
+
+.draft .card {
   background-color: #979797;
   opacity: .7;
 }
 
-.author-profile{
-	text-align: center;
+.author-profile {
+  text-align: center;
 }
 
 /*
@@ -234,37 +254,60 @@ img {
   background-position: center center;
   opacity: 0.4;
 }
+
 /*
 == debug button
 */
-.modal{
-   width: 80%;
+.modal {
+  width: 80%;
   max-width: 1024px;
 }
-.modal .debug-array{
- 
+
+.modal .debug-array {
+
   font-family: monospace;
-    white-space: pre-wrap;
-    word-break: break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
-.debug-array b{
+
+.debug-array b {
   color: #0C569F;
   font-size: 120%;
 }
-#debug-button { 
--webkit-touch-callout: none; 
--webkit-user-select: none; 
--khtml-user-select: none; 
--moz-user-select: none; 
--ms-user-select: none; 
-user-select: none; 
-right: 0px; 
-bottom: 10vh;
-padding: 1em 1.5em;
-display: block; 
-position: fixed; 
-background: tomato; 
-color: white;
-z-index: 1; 
-text-align: center;
-} 
+
+#debug-button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  right: 0px;
+  bottom: 10vh;
+  padding: 1em 1.5em;
+  display: block;
+  position: fixed;
+  background: tomato;
+  color: white;
+  z-index: 1;
+  text-align: center;
+}
+
+/* likes - default "not-liked" gray heart */
+.heart-button {
+  color: white;
+  text-shadow: -1px -1px 0 gray,
+    1px 1px 0 gray,
+    -1px 1px 0 gray,
+    1px -1px 0 gray;
+
+  -webkit-text-stroke: 1px gray;
+  cursor: pointer;
+}
+
+/* like: red heart */
+.you-like .heart-button {
+  color: red;
+  text-shadow: none;
+  -webkit-text-stroke: 1px red;
+}
