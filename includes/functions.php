@@ -261,7 +261,7 @@ function get_RGB($iH, $iS, $iV) {
     }
 }
 
-function category_dropdown(){
+function category_dropdown( $cat = 0 ){
     global $DB; 
     //grt all of the category names in alpha order. 
     $result = $DB->prepare('SELECT * FROM categories ORDER BY name ASC');
@@ -270,7 +270,10 @@ function category_dropdown(){
         echo '<select name="category_id">';
         while( $row = $result->fetch()  ){
             extract($row);
-            echo "<option value='$category_id'>$name</option>";
+            
+            echo "<option value='$category_id'";
+            selected($cat, $category_id );
+            echo ">$name</option>";
         }
         echo '<select>';
     }
@@ -306,40 +309,44 @@ function show_post_image( $unique, $size = 'medium', $alt = 'post image' ){
  * Interface for "like" button and count
  * works on any post
  */
-function like_interface( $post_id, $user_id = 0 ){
+function like_interface( $post_id ){
     global $DB;
+    global $logged_in_user;
     //is the viewer logged in?
-      if( $user_id ){
-      //does the viewer "like" this post?
-       $result = $DB->prepare( "SELECT * FROM likes
-                WHERE user_id = ?
-                AND post_id = ?
-                LIMIT 1" );
-        $result->execute(array($user_id, $post_id));
-     if( $result->rowCount() >= 1 ){
-        //they like it
-        $class = 'you-like';
-      }else{
-        //they don't like
-        $class = 'not-liked';
-      }
-    } //end if logged in
-    
-  
+    if($logged_in_user){
+        //does the user like this post?
+        $result = $DB->prepare('SELECT * FROM likes
+            WHERE user_id = ?
+            AND post_id = ? 
+            LIMIT 1');
+        $result->execute( array( $logged_in_user['user_id'], $post_id ) );
+        if( $result->rowCount() ){
+            $class = 'you-like';
+        }else{
+            $class = 'not-liked';
+        }
+    }//end if logged in
     ?>
     <span class="like-interface">
-      <span class="<?php echo $class; ?>">
-        
-        <?php 
-        //logged in?
-        if( $user_id ){ ?>
-        <span class="heart-button" data-postid="<?php echo $post_id; ?>">❤</span>
-        <?php 
-        } //end if logged in
-        ?>
-  
-        <?php echo count_likes( $post_id ); ?>
-      </span>
+        <span class="<?php echo $class; ?>">
+            <span class="heart-button" data-postid="<?php echo $post_id; ?>">❤</span>
+            <?php echo count_likes( $post_id ); ?>
+        </span>
     </span>
     <?php
+}
+
+/**Checkbox Helper */
+function checked( $a, $b ){
+
+    if($a == $b){
+        echo 'checked';
+    }
+}
+/**dropdown Helper */
+function selected( $a, $b ){
+
+    if($a == $b){
+        echo 'selected';
+    }
 }

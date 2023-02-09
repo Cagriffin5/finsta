@@ -28,6 +28,12 @@ require('includes/header.php');?>
 							<a href="single.php?post_id=<?php echo $post['post_id'];?>">
 								<?php show_post_image( $post['image'], 'medium', $post['title']); ?>
 							</a>
+							<<?php 
+							if( $logged_in_user AND $logged_in_user['user_id'] == $post['user_id'] ){
+								$post_id = $post['post_id'];
+								echo "<a href='edit-post.php?post_id=$post_id' class='button edit-post-button'>EDIT</a>";
+							}
+							?>
 						</div>
 						<footer>
 							<div class="post-header flex two">

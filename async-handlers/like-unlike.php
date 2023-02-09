@@ -2,6 +2,7 @@
 //
 require('../config.php');
 require_once('../includes/functions.php');
+$logged_in_user = check_login();
 
 
 $post_id = filter_var($_POST['postId'], FILTER_SANITIZE_NUMBER_INT );

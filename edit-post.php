@@ -22,16 +22,18 @@ require('includes/parse-edit-post.php');?>
                 <textarea name="body"><?php echo $body; ?></textarea>
                 <label>Category</label>
 
-				<?php category_dropdown(); ?>
+				<?php category_dropdown( $category_id ); ?>
                 
                 <label>
-                    <input type="checkbox" name="allow_comments" value="1">
+                    <input type="checkbox" name="allow_comments" value="1"
+                     <?php checked( $allow_comments, 1 ); ?>>
                     <span class="checkable">Allow Comments</span>
                     
                 </label>
             
                 <label>
-                    <input type="checkbox" name="is_published" value="1" >
+                    <input type="checkbox" name="is_published" value="1" 
+                    <?php checked( $is_published, 1 ); ?> >
                     <span class="checkable">Make this post public</span>
                 </label>
 
